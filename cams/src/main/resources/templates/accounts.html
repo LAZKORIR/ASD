@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div th:replace="fragments/header :: body(~{::content})">
+
+    <div th:fragment="content">
+        <h3 class="text-primary">Our Customer-Accounts</h3>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+            <tr>
+                <th>#</th>
+                <th>Account Number</th>
+                <th>Customer</th>
+                <th>Account Type</th>
+                <th>Balance (in US$)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="acc, stat : ${accounts}">
+                <td th:text="${stat.index + 1}"></td>
+                <td th:text="${acc.accountNumber}"></td>
+                <td th:text="${acc.customer.firstName + ' ' + acc.customer.lastName}"></td>
+                <td th:text="${acc.accountType}"></td>
+                <td th:text="${#numbers.formatDecimal(acc.balance,1,2)}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-info">
+            <strong>Liquidity Position:</strong>
+            <span th:text="${#numbers.formatDecimal(liquidity,1,2)}"></span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
