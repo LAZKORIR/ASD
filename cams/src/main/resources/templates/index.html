@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div th:replace="fragments/header :: body(~{::content})">
+
+    <div th:fragment="content">
+        <h2 class="text-primary">Welcome to the Customer-Accounts Management System</h2>
+        <h4 class="text-info">Getting Started</h4>
+        <p>
+            This system allows The Special Bank of Burlington to manage customer accounts,
+            view balances, calculate liquidity, and identify prime accounts.
+        </p>
+        <p>
+            Use the navigation menu above to view all accounts, create a new account,
+            or access the JSON API for developers.
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
