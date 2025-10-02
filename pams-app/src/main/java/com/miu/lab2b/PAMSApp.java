@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class PAMSApp {
     public static void main(String[] args) {
+
         List<Patient> patients = loadData();
 
         // Sort by Age DESC

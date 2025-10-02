@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeApp {
     public static void main(String[] args) {
+
         List<Employee> employees = loadData();
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(java.time.LocalDate.class, new LocalDateAdapter())
