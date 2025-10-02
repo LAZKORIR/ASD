@@ -1,12 +1,12 @@
-name: Build Lab2a - Employee Pension App
+name: Build Lab2b - PAMS App
 
 on:
   push:
     paths:
-      - 'employee-pension-app/**'
+      - 'pams-app/**'
   pull_request:
     paths:
-      - 'employee-pension-app/**'
+      - 'pams-app/**'
 
 jobs:
   build:
@@ -22,11 +22,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build Lab2a
-        run: mvn -B clean verify --file employee-pension-app/pom.xml
+      - name: Build Lab2b
+        run: mvn -B clean verify --file pams-app/pom.xml
 
-      - name: Upload Lab2a JAR
+      - name: Upload Lab2b JAR
         uses: actions/upload-artifact@v3
         with:
-          name: lab2a-jar
-          path: employee-pension-app/target/*.jar
+          name: lab2b-jar
+          path: pams-app/target/*.jar
