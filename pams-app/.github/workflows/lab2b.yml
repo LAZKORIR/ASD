@@ -1,0 +1,32 @@
+name: Build Lab2b - PAMS App
+
+on:
+  push:
+    paths:
+      - 'pams-app/**'
+  pull_request:
+    paths:
+      - 'pams-app/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build Lab2b
+        run: mvn -B clean verify --file pams-app/pom.xml
+
+      - name: Upload Lab2b JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: lab2b-jar
+          path: pams-app/target/*.jar
