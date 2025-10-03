@@ -8,19 +8,17 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "account")
-@EqualsAndHashCode(exclude = "account")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
 
-    @Column(nullable = false)
-    private String firstName;
+    @Column(nullable=false) private String firstName;
+    @Column(nullable=false) private String lastName;
 
-    @Column(nullable = false)
-    private String lastName;
-
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "customer")
+    @com.fasterxml.jackson.annotation.JsonBackReference
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Account account;
 }

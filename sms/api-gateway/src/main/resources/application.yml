@@ -10,14 +10,66 @@ spring:
         webflux:
           routes:
             - id: auth-service
-              uri: http://localhost:8081
+              uri: http://localhost:9081   # change to lb://AUTH-SERVICE if using Eureka
               predicates:
                 - Path=/auth/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: authCB
+                    fallbackUri: forward:/fallback/auth
+                    statusCodes: 400,401,403,404,405,500
+
             - id: course-service
-              uri: http://localhost:8082
+              uri: http://localhost:8082   # change to lb://COURSE-SERVICE if using Eureka
               predicates:
                 - Path=/courses/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: courseCB
+                    fallbackUri: forward:/fallback/course
+
             - id: enrollment-service
-              uri: http://localhost:8083
+              uri: http://localhost:8083   # change to lb://ENROLLMENT-SERVICE if using Eureka
               predicates:
                 - Path=/enrollment/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: enrollmentCB
+                    fallbackUri: forward:/fallback/enrollment
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      authCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 2
+      courseCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 60
+        waitDurationInOpenState: 8s
+        permittedNumberOfCallsInHalfOpenState: 3
+      enrollmentCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true

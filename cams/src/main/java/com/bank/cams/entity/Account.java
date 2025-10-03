@@ -9,25 +9,18 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "customer")
-@EqualsAndHashCode(exclude = "customer")
 public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountId;
 
-    @Column(nullable = false, unique = true)
-    private String accountNumber;
-
-    @Column(nullable = false)
-    private String accountType;
-
+    @Column(nullable=false, unique=true) private String accountNumber;
+    @Column(nullable=false) private String accountType;
     private LocalDate dateOpened;
+    @Column(nullable=false) private Double balance;
 
-    @Column(nullable = false)
-    private Double balance;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
+    // Owning side, single FK lives here
+    @OneToOne(optional = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "customerId", unique = true)
+    @com.fasterxml.jackson.annotation.JsonManagedReference
     private Customer customer;
 }
