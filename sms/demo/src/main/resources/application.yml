@@ -1,6 +1,9 @@
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       group-id: enrollment-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -8,4 +11,4 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: com.practice.demo.model.CourseEvent
-        spring.json.use.type.headers: false   # 👈 ignore __TypeId__ header
+        spring.json.use.type.headers: false

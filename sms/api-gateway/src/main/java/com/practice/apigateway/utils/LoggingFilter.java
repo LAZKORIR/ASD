@@ -13,4 +13,5 @@ public class LoggingFilter implements GlobalFilter {
         System.out.println("Incoming request: " + exchange.getRequest().getURI());
         return chain.filter(exchange);
     }
+
 }
