@@ -35,5 +35,13 @@ public class FallbackController {
         body.put("message", "⚠ Enrollment Service is unavailable, please try again later.");
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(body);
     }
+
+    @GetMapping("/fallback/ratelimit")
+    public ResponseEntity<Map<String, String>> rateLimitFallback() {
+        Map<String, String> body = new HashMap<>();
+        body.put("message", "⚠ You are being rate limited. Please slow down.");
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(body);
+    }
+
 }
 

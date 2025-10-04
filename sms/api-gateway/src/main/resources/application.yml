@@ -4,13 +4,19 @@ server:
 spring:
   application:
     name: gateway-service
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
   cloud:
     gateway:
       server:
         webflux:
           routes:
             - id: auth-service
-              uri: http://localhost:9081   # change to lb://AUTH-SERVICE if using Eureka
+              uri: http://localhost:9081
               predicates:
                 - Path=/auth/**
               filters:
@@ -18,9 +24,15 @@ spring:
                   args:
                     name: authCB
                     fallbackUri: forward:/fallback/auth
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1   # ~1/60 requests per second
+                    redis-rate-limiter.burstCapacity: 1
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@userKeyResolver}"
 
             - id: course-service
-              uri: http://localhost:8082   # change to lb://COURSE-SERVICE if using Eureka
+              uri: http://localhost:8082
               predicates:
                 - Path=/courses/**
               filters:
@@ -28,9 +40,15 @@ spring:
                   args:
                     name: courseCB
                     fallbackUri: forward:/fallback/course
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 1
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@userKeyResolver}"
 
             - id: enrollment-service
-              uri: http://localhost:8083   # change to lb://ENROLLMENT-SERVICE if using Eureka
+              uri: http://localhost:8083
               predicates:
                 - Path=/enrollment/**
               filters:
@@ -38,37 +56,9 @@ spring:
                   args:
                     name: enrollmentCB
                     fallbackUri: forward:/fallback/enrollment
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      authCB:
-        registerHealthIndicator: true
-        slidingWindowSize: 10
-        minimumNumberOfCalls: 3
-        failureRateThreshold: 50
-        waitDurationInOpenState: 10s
-        permittedNumberOfCallsInHalfOpenState: 2
-      courseCB:
-        registerHealthIndicator: true
-        slidingWindowSize: 10
-        minimumNumberOfCalls: 5
-        failureRateThreshold: 60
-        waitDurationInOpenState: 8s
-        permittedNumberOfCallsInHalfOpenState: 3
-      enrollmentCB:
-        registerHealthIndicator: true
-        slidingWindowSize: 5
-        minimumNumberOfCalls: 5
-        failureRateThreshold: 50
-        waitDurationInOpenState: 6s
-        permittedNumberOfCallsInHalfOpenState: 2
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics,circuitbreakers
-  health:
-    circuitbreakers:
-      enabled: true
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 1
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@userKeyResolver}"
