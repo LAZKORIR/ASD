@@ -19,7 +19,8 @@ import java.util.stream.Collectors;
 public class DepartmentView {
     @JsonProperty("departmentNo") BigInteger departmentNo;
     @JsonProperty("name") String name;
-    @JsonProperty("headOfDepartment") EmployeeView headOfDepartment;
+    @JsonProperty("headOfDepartment")
+    EmployeeView headOfDepartment;
     @JsonProperty("totalAnnualSalary") BigDecimal totalAnnualSalary;
     @JsonProperty("employees") List<EmployeeView> employees;
 

@@ -1,34 +1,32 @@
 package com.practice.abchr.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
-
+import jakarta.persistence.*;
+import lombok.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@RequiredArgsConstructor
+@Entity
+@Table(name = "department")
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString(onlyExplicitlyIncluded = true)
 public class Department {
+
+    @Id
+    @Column(name = "department_no", precision = 38, scale = 0, nullable = false)
     @EqualsAndHashCode.Include
-    @ToString.Include
-    private final BigInteger departmentNo;
+    private BigInteger departmentNo;
 
-    @ToString.Include
-    private final String name;
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
 
+    // Optional HOD; may reference an employee from any department (matches quiz data)
+    @OneToOne
+    @JoinColumn(name = "head_employee_no", referencedColumnName = "employee_no")
     private Employee headOfDepartment;
-    private final List<Employee> employees = new ArrayList<>();
 
-    public void setHeadOfDepartment(Employee headOfDepartment) {
-        this.headOfDepartment = headOfDepartment;
-    }
-
-    public void addEmployee(Employee e) {
-        if (e != null && !employees.contains(e)) employees.add(e);
-    }
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private List<Employee> employees = new ArrayList<>();
 }
