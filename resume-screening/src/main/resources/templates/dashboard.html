@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout}">
+<head>
+    <title>Dashboard - Smart Resume AI</title>
+</head>
+<body>
+<div class="card shadow-sm p-4">
+    <h2 class="mb-3">Welcome to Smart Resume AI Dashboard</h2>
+    <p>Manage job postings, upload resumes, and let AI score candidates automatically.</p>
+
+    <div class="d-flex flex-wrap gap-3 mt-4">
+        <a href="/jobs" class="btn btn-primary btn-lg">📋 Manage Jobs</a>
+        <a href="/resumes/all" class="btn btn-success btn-lg">👥 View All Candidates</a>
+    </div>
+</div>
+</body>
+</html>

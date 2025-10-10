@@ -26,7 +26,7 @@ spring:
                     fallbackUri: forward:/fallback/auth
                 - name: RequestRateLimiter
                   args:
-                    redis-rate-limiter.replenishRate: 1   # ~1/60 requests per second
+                    redis-rate-limiter.replenishRate: 1
                     redis-rate-limiter.burstCapacity: 1
                     redis-rate-limiter.requestedTokens: 1
                     key-resolver: "#{@userKeyResolver}"
