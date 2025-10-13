@@ -5,6 +5,7 @@ import com.resumeai.resumescreening.model.Resume;
 import com.resumeai.resumescreening.service.AIService;
 import com.resumeai.resumescreening.service.JobService;
 import com.resumeai.resumescreening.service.ResumeService;
+import com.resumeai.resumescreening.util.FileUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +22,9 @@ import java.nio.file.Paths;
 @RequiredArgsConstructor
 @RequestMapping("/resumes")
 public class ResumeController {
+
     private final ResumeService resumeService;
     private final JobService jobService;
-
     private final AIService aiService;
 
     private static final String UPLOAD_DIR = "uploads/";
@@ -46,9 +47,8 @@ public class ResumeController {
         Files.write(path, file.getBytes());
 
         Job job = jobService.getJobById(jobId);
-        String extractedText = com.resumeai.resumescreening.util.FileUtil.extractText(path.toString());
+        String extractedText = FileUtil.extractText(path.toString());
 
-        // AI integration
         double score = aiService.computeSimilarity(job.getDescription(), extractedText);
         String summary = aiService.generateSummary(extractedText);
 
@@ -70,5 +70,4 @@ public class ResumeController {
         model.addAttribute("resumes", resumeService.getResumesForJob(jobId));
         return "resumes_list";
     }
-
 }

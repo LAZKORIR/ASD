@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="_header :: *">
-<head><title>Resumes</title></head>
-<body>
-<h2 class="mb-3">Candidates for this Job</h2>
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-    <tr>
-        <th>Candidate Name</th>
-        <th>AI Match Score (%)</th>
-        <th>AI Summary</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="r : ${resumes}">
-        <td th:text="${r.candidateName}"></td>
-        <td>
-            <span th:text="${#numbers.formatDecimal(r.aiScore, 0, 2)}"></span>
-        </td>
-        <td th:text="${r.aiSummary}"></td>
-    </tr>
-    </tbody>
-</table>
-<a href="/jobs" class="btn btn-secondary">Back to Jobs</a>
-</body>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout(~{::content})}">
+<div th:fragment="content">
+    <h2 class="mb-3">Candidates for this Job</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>Candidate Name</th>
+            <th>AI Match Score (%)</th>
+            <th>AI Summary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${resumes}">
+            <td th:text="${r.candidateName}"></td>
+            <td><span th:text="${#numbers.formatDecimal(r.aiScore, 0, 2)}"></span></td>
+            <td th:text="${r.aiSummary}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/jobs" class="btn btn-secondary">Back to Jobs</a>
+</div>
 </html>

@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/jobs")
-public class JobController {
+public class JobsController {
+
     private final JobService jobService;
 
     @GetMapping
     public String listJobs(Model model) {
+        System.out.println("Fetching all jobs");
+        System.out.println(jobService.getAllJobs());
         model.addAttribute("jobs", jobService.getAllJobs());
         return "jobs";
     }

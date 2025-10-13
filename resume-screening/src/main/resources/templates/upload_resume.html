@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="_header :: *">
-<head><title>Upload Resume</title></head>
-<body>
-<div class="card shadow-sm p-4">
-    <h2 th:text="'Upload Resume for ' + ${job.title}"></h2>
-    <form action="/resumes/upload" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="jobId" th:value="${job.id}"/>
-        <div class="mb-3">
-            <label class="form-label">Candidate Name</label>
-            <input type="text" name="candidateName" class="form-control" placeholder="Enter full name"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Resume File</label>
-            <input type="file" name="file" class="form-control"/>
-        </div>
-        <button type="submit" class="btn btn-success">Upload</button>
-        <a href="/jobs" class="btn btn-secondary">Back</a>
-    </form>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout(~{::content})}">
+<div th:fragment="content">
+    <div class="card shadow-sm p-4">
+        <h2 th:text="'Upload Resume for ' + ${job.title}"></h2>
+        <form th:action="@{/resumes/upload}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+            <input type="hidden" name="jobId" th:value="${job.id}"/>
+            <div class="mb-3">
+                <label class="form-label">Candidate Name</label>
+                <input type="text" name="candidateName" class="form-control" placeholder="Enter full name"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Resume File</label>
+                <input type="file" name="file" class="form-control"/>
+            </div>
+            <button type="submit" class="btn btn-success">Upload</button>
+            <a href="/jobs" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
 </div>
-</body>
 </html>

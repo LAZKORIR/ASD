@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout}">
-<head>
-    <title>Dashboard - Smart Resume AI</title>
-</head>
-<body>
-<div class="card shadow-sm p-4">
-    <h2 class="mb-3">Welcome to Smart Resume AI Dashboard</h2>
-    <p>Manage job postings, upload resumes, and let AI score candidates automatically.</p>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{_header :: layout(~{::content})}">
+<div th:fragment="content">
 
-    <div class="d-flex flex-wrap gap-3 mt-4">
-        <a href="/jobs" class="btn btn-primary btn-lg">📋 Manage Jobs</a>
-        <a href="/resumes/all" class="btn btn-success btn-lg">👥 View All Candidates</a>
+    <div class="container py-4" th:if="${view == 'admin'}">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Admin Dashboard</h2>
+            <p class="text-muted">System Overview & Key Metrics</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card stat-card p-4 text-center bg-white">
+                    <div class="stat-icon text-primary mb-2">
+                        <i class="bi bi-briefcase-fill"></i>
+                    </div>
+                    <h4 th:text="${totalJobs}">0</h4>
+                    <p class="text-muted mb-0">Total Jobs</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card stat-card p-4 text-center bg-white">
+                    <div class="stat-icon text-success mb-2">
+                        <i class="bi bi-file-earmark-person-fill"></i>
+                    </div>
+                    <h4 th:text="${totalResumes}">0</h4>
+                    <p class="text-muted mb-0">Total Resumes</p>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
-</body>
 </html>
