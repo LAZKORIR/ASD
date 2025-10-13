@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout(~{::content})}">
+<div th:fragment="content">
+    <div class="card shadow-sm p-4">
+        <h2 class="mb-3">Create Job</h2>
+        <form th:action="@{/jobs/save}" method="post" th:object="${job}">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" th:field="*{title}" class="form-control" placeholder="e.g. Java Developer"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea th:field="*{description}" class="form-control" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="/jobs" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+</html>
