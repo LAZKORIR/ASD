@@ -19,4 +19,9 @@ public class ResumeService {
     public Resume save(Resume resume) {
         return resumeRepository.save(resume);
     }
+
+    public List<Resume> getAllResumes() {
+        return resumeRepository.findAll();
+    }
+
 }

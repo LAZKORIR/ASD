@@ -2,35 +2,82 @@
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="~{_header :: layout(~{::content})}">
 <div th:fragment="content">
-
-    <div class="container py-4" th:if="${view == 'admin'}">
+    <div class="container py-4">
         <div class="text-center mb-4">
             <h2 class="fw-bold">Admin Dashboard</h2>
-            <p class="text-muted">System Overview & Key Metrics</p>
+            <p class="text-muted">System Overview & Insights</p>
         </div>
 
+        <!-- Dashboard Summary Cards -->
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">
-                <div class="card stat-card p-4 text-center bg-white">
-                    <div class="stat-icon text-primary mb-2">
-                        <i class="bi bi-briefcase-fill"></i>
+                <a href="/jobs" class="text-decoration-none">
+                    <div class="card stat-card p-4 text-center bg-white h-100">
+                        <div class="stat-icon text-primary mb-2">
+                            <i class="bi bi-briefcase-fill"></i>
+                        </div>
+                        <h4 th:text="${totalJobs}">0</h4>
+                        <p class="text-muted mb-0">Total Jobs</p>
                     </div>
-                    <h4 th:text="${totalJobs}">0</h4>
-                    <p class="text-muted mb-0">Total Jobs</p>
-                </div>
+                </a>
             </div>
 
             <div class="col-md-4">
-                <div class="card stat-card p-4 text-center bg-white">
-                    <div class="stat-icon text-success mb-2">
-                        <i class="bi bi-file-earmark-person-fill"></i>
+                <a href="/resumes/list" class="text-decoration-none">
+                    <div class="card stat-card p-4 text-center bg-white h-100">
+                        <div class="stat-icon text-success mb-2">
+                            <i class="bi bi-file-earmark-person-fill"></i>
+                        </div>
+                        <h4 th:text="${totalResumes}">0</h4>
+                        <p class="text-muted mb-0">Total Resumes</p>
                     </div>
-                    <h4 th:text="${totalResumes}">0</h4>
-                    <p class="text-muted mb-0">Total Resumes</p>
-                </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="mt-5">
+            <div class="card p-4 shadow-sm">
+                <h5 class="fw-bold mb-3 text-center">Job vs Resume Overview</h5>
+                <canvas id="jobResumeChart" height="120"></canvas>
             </div>
         </div>
     </div>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const jobCount = [[${totalJobs}]];
+        const resumeCount = [[${totalResumes}]];
+
+        const ctx = document.getElementById('jobResumeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jobs', 'Resumes'],
+                datasets: [{
+                    label: 'System Metrics',
+                    data: [jobCount, resumeCount],
+                    backgroundColor: ['#3b82f6', '#10b981'],
+                    borderRadius: 10,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { stepSize: 1 }
+                    }
+                }
+            }
+        });
+        /*]]>*/
+    </script>
 </div>
 </html>

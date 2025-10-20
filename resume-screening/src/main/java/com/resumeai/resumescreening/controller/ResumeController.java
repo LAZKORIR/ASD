@@ -6,6 +6,8 @@ import com.resumeai.resumescreening.service.AIService;
 import com.resumeai.resumescreening.service.JobService;
 import com.resumeai.resumescreening.service.ResumeService;
 import com.resumeai.resumescreening.util.FileUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,7 @@ import java.nio.file.Paths;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/resumes")
+@Tag(name = "Resumes", description = "Upload and manage candidate resumes")
 public class ResumeController {
 
     private final ResumeService resumeService;
@@ -29,12 +32,14 @@ public class ResumeController {
 
     private static final String UPLOAD_DIR = "uploads/";
 
+    @Operation(summary = "Show resume upload form for a specific job")
     @GetMapping("/upload/{jobId}")
     public String showUploadForm(@PathVariable Long jobId, Model model) {
         model.addAttribute("job", jobService.getJobById(jobId));
         return "upload_resume";
     }
 
+    @Operation(summary = "Upload and analyze a candidate's resume")
     @PostMapping("/upload")
     public String uploadResume(@RequestParam("file") MultipartFile file,
                                @RequestParam("candidateName") String candidateName,
@@ -48,7 +53,6 @@ public class ResumeController {
 
         Job job = jobService.getJobById(jobId);
         String extractedText = FileUtil.extractText(path.toString());
-
         double score = aiService.computeSimilarity(job.getDescription(), extractedText);
         String summary = aiService.generateSummary(extractedText);
 
@@ -65,9 +69,17 @@ public class ResumeController {
         return "redirect:/jobs";
     }
 
+    @Operation(summary = "List all resumes for a specific job")
     @GetMapping("/list/{jobId}")
     public String listResumes(@PathVariable Long jobId, Model model) {
         model.addAttribute("resumes", resumeService.getResumesForJob(jobId));
+        return "resumes_list";
+    }
+
+    @Operation(summary = "List all resumes across all jobs")
+    @GetMapping("/list")
+    public String listAllResumes(Model model) {
+        model.addAttribute("resumes", resumeService.getAllResumes());
         return "resumes_list";
     }
 }

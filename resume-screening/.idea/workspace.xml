@@ -4,11 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e617dc8-6402-4fd0-a1c0-b0ea1c7b5046" name="Changes" comment="" />
+    <list default="true" id="5e617dc8-6402-4fd0-a1c0-b0ea1c7b5046" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/service/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/resumeai/resumescreening/controller/JobsControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/resumeai/resumescreening/service/AIServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/resumeai/resumescreening/service/JobServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sms/api-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/JobsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/JobsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/ResumeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/ResumeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/repository/ResumeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/repository/ResumeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/service/ResumeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/service/ResumeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/jobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/jobs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sms/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sms/api-gateway/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -45,6 +79,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JUnit.AIServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JobServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JobsControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -52,6 +89,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.ResumeScreeningApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -59,10 +98,67 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.resumeai.resumescreening.service" />
+      <recent name="com.resumeai.resumescreening.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ResumeScreeningApplication">
+    <configuration name="AIServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="resume-screening" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.resumeai.resumescreening.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.resumeai.resumescreening.service" />
+      <option name="MAIN_CLASS_NAME" value="com.resumeai.resumescreening.service.AIServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="resume-screening" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.resumeai.resumescreening.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.resumeai.resumescreening.service" />
+      <option name="MAIN_CLASS_NAME" value="com.resumeai.resumescreening.service.JobServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="resume-screening" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.resumeai.resumescreening.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.resumeai.resumescreening.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.resumeai.resumescreening.controller.JobsControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ResumeScreeningApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="resume-screening" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.resumeai.resumescreening.ResumeScreeningApplication" />
@@ -70,6 +166,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JobsControllerTest" />
+        <item itemvalue="JUnit.JobServiceTest" />
+        <item itemvalue="JUnit.AIServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -90,6 +193,15 @@
       <workItem from="1760040359064" duration="4457000" />
       <workItem from="1760068032866" duration="105000" />
       <workItem from="1760131682191" duration="5929000" />
+      <workItem from="1760462406867" duration="2407000" />
+      <workItem from="1760752668024" duration="1238000" />
+      <workItem from="1760890179517" duration="4263000" />
+      <workItem from="1760903530606" duration="12662000" />
+      <workItem from="1760928055538" duration="2260000" />
+      <workItem from="1760930430757" duration="306000" />
+      <workItem from="1760930929890" duration="1220000" />
+      <workItem from="1760973869780" duration="30000" />
+      <workItem from="1760979916284" duration="6777000" />
     </task>
     <servers />
   </component>

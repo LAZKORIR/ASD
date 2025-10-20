@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{_header :: layout(~{::content})}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+      th:replace="~{_header :: layout(~{::content})}">
 <div th:fragment="content">
     <h2 class="mb-4">Job Listings</h2>
-    <a href="/jobs/new" class="btn btn-success mb-3">➕ Add New Job</a>
+
+    <!-- Add New Job: Only Admin can see this -->
+    <a href="/jobs/new" class="btn btn-success mb-3" sec:authorize="hasRole('ADMIN')">
+        ➕ Add New Job
+    </a>
 
     <table class="table table-striped table-hover">
         <thead class="table-dark">
@@ -19,9 +25,14 @@
             <td>
                 <a th:href="@{'/resumes/upload/' + ${job.id}}" class="btn btn-sm btn-primary">Upload Resume</a>
                 <a th:href="@{'/resumes/list/' + ${job.id}}" class="btn btn-sm btn-info text-white">View Candidates</a>
-                <a th:href="@{'/jobs/delete/' + ${job.id}}" class="btn btn-sm btn-danger">Delete</a>
+
+                <!-- Delete: Only Admin can see -->
+                <a th:href="@{'/jobs/delete/' + ${job.id}}"
+                   class="btn btn-sm btn-danger"
+                   sec:authorize="hasRole('ADMIN')">Delete</a>
             </td>
         </tr>
+
         <tr th:if="${#lists.isEmpty(jobs)}">
             <td colspan="3" class="text-center text-muted">No jobs available.</td>
         </tr>
