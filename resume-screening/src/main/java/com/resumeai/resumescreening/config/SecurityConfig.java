@@ -21,7 +21,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                // ✅ Allow framing for H2 Console
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
+
+                // ✅ Disable CSRF protection ONLY for H2 Console
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))
+
                 .authorizeHttpRequests(auth -> auth
                         // ✅ Allow Swagger endpoints
                         .requestMatchers(
@@ -29,6 +34,9 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/swagger-ui.html"
                         ).permitAll()
+
+                        // ✅ Allow H2 Console
+                        .requestMatchers("/h2-console/**").permitAll()
 
                         // ✅ Allow static files and login
                         .requestMatchers("/css/**", "/js/**", "/", "/login").permitAll()

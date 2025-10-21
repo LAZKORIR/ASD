@@ -4,6 +4,7 @@ import com.resumeai.resumescreening.model.Job;
 import com.resumeai.resumescreening.service.JobService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,7 @@ public class JobsController {
 
     @Operation(summary = "Save a new job posting")
     @PostMapping("/save")
-    public String saveJob(@ModelAttribute Job job) {
+    public String saveJob(@Valid @ModelAttribute Job job) {
         jobService.saveJob(job);
         return "redirect:/jobs";
     }

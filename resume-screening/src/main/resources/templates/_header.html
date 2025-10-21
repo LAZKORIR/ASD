@@ -42,7 +42,11 @@
                 <li class="nav-item"><a class="nav-link" href="/jobs">Jobs</a></li>
                 <li class="nav-item"><a class="nav-link" href="/resumes/list">Resumes</a></li>
             </ul>
-            <a href="/logout" class="btn btn-outline-light btn-sm">Logout</a>
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+            </form>
+
         </div>
     </div>
 </nav>
