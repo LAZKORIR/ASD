@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e617dc8-6402-4fd0-a1c0-b0ea1c7b5046" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lab3/SMart Resume Sequence 1.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab3/Smart Resume Architecture.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab3/Smart Resume Class Diagram.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab3/Smart Resume Sequence 2.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab4/Smart Resume.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab7/Smart Resume Architecture.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab8/Smart Resume Architecture.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab9/Smart Resume Architecture.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/Lazarus_Korir_TN.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab3/ADS_Domain_Model.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab3/ADS_Functional_Requirements_LazarusKorir.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab4/System_Design.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab7/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab9/data.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/JobsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/controller/JobsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/Resume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/resumeai/resumescreening/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Lazarus_Korir_N.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/Lazarus_Korir_N.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +177,8 @@
       <workItem from="1760930929890" duration="1220000" />
       <workItem from="1760973869780" duration="30000" />
       <workItem from="1760979916284" duration="18180000" />
-      <workItem from="1761059351874" duration="11179000" />
+      <workItem from="1761059351874" duration="11823000" />
+      <workItem from="1761146748219" duration="3916000" />
     </task>
     <servers />
   </component>
